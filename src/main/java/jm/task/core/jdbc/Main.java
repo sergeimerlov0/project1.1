@@ -9,20 +9,27 @@ import jm.task.core.jdbc.util.Util;
 
 public class Main {
 
+    private static final UserService userService = new UserServiceImpl();
+    private static final User user1 = new User("Petr", "Ivanov", (byte) 20);
+    private static final User user2 = new User("Vasy", "Petrov", (byte) 25);
+    private static final User user3 = new User("Sergey", "Sidorov", (byte) 31);
+    private static final User user4 = new User("Anton", "Krilov", (byte) 38);
     public static void main(String[] args) {
-//        Util.getConnection();
-//        UserDao userDao = new UserDaoJDBCImpl();
-//
-//        userDao.createUsersTable();
-//
-//        userDao.saveUser("Petr", "Ivanov", (byte) 20);
-//        userDao.saveUser("Vasy", "Petrov", (byte) 25);
-//        userDao.saveUser("Sergey", "Sidorov", (byte) 31);
-//        userDao.saveUser("Anton", "Krilov", (byte) 38);
 
- //      userDao.removeUserById(1);
-//        userDao.getAllUsers();
- //      userDao.cleanUsersTable();
-//        userDao.dropUsersTable();
+        userService.createUsersTable();
+
+        userService.saveUser(user1.getName(), user1.getLastName(), user1.getAge());
+
+        userService.saveUser(user2.getName(), user2.getLastName(), user2.getAge());
+
+        userService.saveUser(user3.getName(), user3.getLastName(), user3.getAge());
+
+        userService.saveUser(user4.getName(), user4.getLastName(), user4.getAge());
+
+        userService.getAllUsers();
+
+        userService.cleanUsersTable();
+
+        userService.dropUsersTable();
     }
 }
